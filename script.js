@@ -20,19 +20,19 @@ function checkWinner() {
     for (let pattern of winPatterns) {
         const [a, b, c] = pattern;
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-            return gameBoard[a]; // Return the winner (either 'X' or 'O')
+            return gameBoard[a]; // zwraca zwycięzce ('X' albo 'O')
         }
     }
 
     if (!gameBoard.includes("")) {
-        return "Draw"; // If no winner and board is full, it's a draw
+        return "Draw"; // odbija remisik
     }
 
-    return null; // No winner yet
+    return null; // bez zwyciezcy
 }
 
 function handleCellClick(index) {
-    if (gameBoard[index] || isGameOver) return; // Cell already filled or game over
+    if (gameBoard[index] || isGameOver) return; // game over
 
     gameBoard[index] = currentPlayer;
     cells[index].textContent = currentPlayer;
@@ -65,7 +65,7 @@ function resetGame() {
     });
 }
 
-// Add event listeners to each cell
+// dodano event listeners - kazda komorka
 cells.forEach(cell => {
     cell.addEventListener("click", () => handleCellClick(cell.dataset.index));
 });
