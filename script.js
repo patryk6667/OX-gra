@@ -43,13 +43,13 @@ function handleCellClick(index) {
     if (winner) {
         isGameOver = true;
         if (winner === "Draw") {
-            statusText.textContent = "It's a Draw!";
+            statusText.textContent = "Remis!";
         } else {
-            statusText.textContent = `Player ${winner} wins!`;
+            statusText.textContent = `Gracz ${winner} wygrywa!`;
         }
     } else {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
-        statusText.textContent = `Player ${currentPlayer}'s turn`;
+        statusText.textContent = `Kolej Gracza ${currentPlayer}'`;
     }
 }
 
@@ -57,7 +57,7 @@ function resetGame() {
     gameBoard = ["", "", "", "", "", "", "", "", ""];
     isGameOver = false;
     currentPlayer = "X";
-    statusText.textContent = "Player X's turn";
+    statusText.textContent = "Kolej Gracza X";
 
     cells.forEach(cell => {
         cell.textContent = "";
